@@ -1,0 +1,168 @@
+{
+  "id": "C-00042871",
+  "name": "Aarav Krishnan",
+  "avatarInitials": "AK",
+  "breadcrumb": {
+    "section": "Clients",
+    "totalClients": 147842
+  },
+  "archetype": {
+    "name": "Virtuous Elephant",
+    "generation": "Gen 2",
+    "stage": "Building",
+    "city": "Mumbai",
+    "tags": [
+      "Long-term thinker",
+      "Conservative with risk",
+      "Prioritises family security"
+    ]
+  },
+  "scores": {
+    "fbs": {
+      "value": 78,
+      "percentile": "Top 34%",
+      "deltaVsLastPeriod": 6
+    },
+    "status": {
+      "label": "C2 Review",
+      "subLabel": "Workbook Ready"
+    }
+  },
+  "personal": {
+    "age": 41,
+    "gender": "Male",
+    "maritalStatus": "Married",
+    "dependents": 2,
+    "occupation": "Product Head",
+    "employer": "Aditya Birla Capital",
+    "city": "Mumbai",
+    "leadSource": "Website — Retirement Calculator",
+    "clientSince": "2023-08-22"
+  },
+  "assignedTeam": [
+    { "id": "u1", "name": "Meera Bhatnagar", "role": "Financial Coach", "avatarInitials": "MB" },
+    { "id": "u2", "name": "Rajesh Iyer", "role": "QFA / Advisor", "avatarInitials": "RI" },
+    { "id": "u3", "name": "Priya Shetty", "role": "Member Services", "avatarInitials": "PS" }
+  ],
+  "household": [
+    { "id": "h1", "relation": "spouse", "initials": "PN" }
+  ],
+  "lifecycle": {
+    "cycle": "C2",
+    "day": 247,
+    "nextReviewDate": "2026-10-22",
+    "stages": [
+      { "key": "registered", "label": "Registered", "status": "complete" },
+      { "key": "discovery", "label": "Discovery", "status": "complete" },
+      { "key": "fwp", "label": "FWP", "status": "complete" },
+      { "key": "consultation", "label": "Consultation", "status": "current" },
+      { "key": "active_review", "label": "Active Review", "status": "upcoming" },
+      { "key": "annual", "label": "Annual", "status": "upcoming" }
+    ]
+  },
+  "financialSnapshot": {
+    "lastSynced": "2026-08-17T10:48:00+05:30",
+    "syncSource": "MFCentral",
+    "viewCount": 1,
+    "netWorth": {
+      "value": 9906000,
+      "displayValue": "₹99.06 L",
+      "deltaPercent": 4.2,
+      "deltaLabel": "vs last quarter",
+      "trend": [
+        { "period": "2026-02", "value": 8620000 },
+        { "period": "2026-03", "value": 8710000 },
+        { "period": "2026-04", "value": 8540000 },
+        { "period": "2026-05", "value": 8990000 },
+        { "period": "2026-06", "value": 9310000 },
+        { "period": "2026-07", "value": 9250000 },
+        { "period": "2026-08", "value": 9906000 }
+      ]
+    },
+    "metrics": {
+      "assets": { "value": 14700000, "displayValue": "₹1.47 Cr", "deltaPercent": 1.8 },
+      "liabilities": { "value": 4820000, "displayValue": "₹48.20 L", "deltaPercent": -2.4 },
+      "valueUnderAdvisory": { "value": 8200000, "displayValue": "₹82.00 L", "deltaPercent": null },
+      "insuranceCover": { "value": 20000000, "displayValue": "₹2.00 Cr", "gap": { "value": 12000000, "displayValue": "₹1.2 Cr" } }
+    },
+    "monthly": {
+      "income": { "value": 365000, "displayValue": "₹3.65 L", "deltaPercent": -2 },
+      "expense": { "value": 192000, "displayValue": "₹1.92 L", "deltaPercent": 8.1, "deltaIsGood": false },
+      "surplus": { "value": 173000, "displayValue": "₹1.73 L" },
+      "fbs": { "value": 78, "percentile": "Top 34%", "deltaAbs": 6 }
+    }
+  },
+  "compliance": {
+    "verifiedCount": 4,
+    "pendingCount": 2,
+    "items": [
+      { "id": "kra", "label": "KRA", "status": "verified", "subLabel": "Verified" },
+      { "id": "ckyc", "label": "CKYC", "status": "verified", "subLabel": "Verified" },
+      { "id": "ria_v3", "label": "RIA v3", "status": "verified", "subLabel": "Signed 22 Aug 23" },
+      { "id": "cd_access", "label": "CD access", "status": "verified", "subLabel": "Active" },
+      { "id": "form_26as", "label": "Form 26AS FY25", "status": "pending", "subLabel": "Pending upload" },
+      { "id": "risk_profile", "label": "Risk profile", "status": "action_required", "subLabel": "Due for re-assessment" }
+    ]
+  },
+  "activity": [
+    {
+      "id": "a1",
+      "type": "meeting",
+      "title": "C2 Review Meeting — Online",
+      "timestamp": "2026-08-17T11:00:00+05:30",
+      "author": "Meera B.",
+      "meta": "Zoom · 48 min · Attended",
+      "description": "Prep: Workbook ready"
+    },
+    {
+      "id": "a2",
+      "type": "note",
+      "title": "Post-meeting note",
+      "timestamp": "2026-08-17T11:48:00+05:30",
+      "author": "Meera B.",
+      "meta": null,
+      "description": "Client confirmed comfort with current SIP allocation; wants to revisit term cover before Diwali."
+    },
+    {
+      "id": "a3",
+      "type": "doc",
+      "title": "FWP v2 shared for e-sign",
+      "timestamp": "2026-08-10T09:15:00+05:30",
+      "author": "Rajesh I.",
+      "meta": "PDF · 12 pages",
+      "description": null
+    },
+    {
+      "id": "a4",
+      "type": "call",
+      "title": "Outbound call — SIP step-up discussion",
+      "timestamp": "2026-08-05T16:20:00+05:30",
+      "author": "Rajesh I.",
+      "meta": "9 min",
+      "description": null
+    }
+  ],
+  "nextAction": {
+    "status": "overdue",
+    "overdueByDays": 3,
+    "title": "Send FWP v3 for review",
+    "description": "v2 accepted 14 Apr · action plan 72% complete · ready to generate v3",
+    "primaryCta": "Generate FWP v3"
+  },
+  "workbook": {
+    "version": "FWP v2",
+    "status": "Accepted",
+    "completionPercent": 72,
+    "totalActions": 14,
+    "completedActions": 10
+  },
+  "tasks": [
+    { "id": "t1", "label": "Confirm SIP step-up for HDFC Flexi Cap", "dueLabel": "Tomorrow", "assigneeTag": "@RI", "completed": false },
+    { "id": "t2", "label": "Upload updated Form 26AS FY25", "dueLabel": "Fri, 24 Apr", "assigneeTag": "@client", "completed": false },
+    { "id": "t3", "label": "Review term plan top-up quote", "dueLabel": "28 Apr", "assigneeTag": "@RI", "completed": false }
+  ],
+  "docsCount": 18,
+  "paymentSummary": {
+    "status": "up_to_date"
+  }
+}
