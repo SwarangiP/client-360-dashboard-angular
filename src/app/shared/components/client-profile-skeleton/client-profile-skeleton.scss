@@ -1,0 +1,382 @@
+:host {
+    display: block;
+}
+
+.skeleton {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px 16px;
+    box-sizing: border-box;
+}
+
+.skeleton__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    min-height: 76px;
+    padding: 10px 18px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeeb;
+}
+
+.skeleton__identity,
+.skeleton__header-actions,
+.skeleton__archetype-row,
+.skeleton__team-row,
+.skeleton__workbook,
+.skeleton__task {
+    display: flex;
+    align-items: center;
+}
+
+.skeleton__identity {
+    gap: 11px;
+}
+
+.skeleton__identity-lines,
+.skeleton__team-lines,
+.skeleton__task-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.skeleton__header-actions {
+    gap: 8px;
+}
+
+.skeleton__layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 280px) minmax(0, 1fr) minmax(260px, 300px);
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+.skeleton__left,
+.skeleton__center,
+.skeleton__right {
+    min-width: 0;
+}
+
+.skeleton__left,
+.skeleton__center,
+.skeleton__right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skeleton__card,
+.skeleton__lifecycle {
+    padding: 16px;
+
+    border: 1px solid #e7e7e3;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.skeleton__card--financial {
+    padding: 0 16px 14px;
+}
+
+.skeleton__circle {
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #e9e9e6;
+}
+
+.skeleton__circle--avatar {
+    width: 42px;
+    height: 42px;
+}
+
+.skeleton__circle--small {
+    width: 44px;
+    height: 44px;
+}
+
+.skeleton__circle--team {
+    width: 30px;
+    height: 30px;
+}
+
+.skeleton__circle--step {
+    width: 14px;
+    height: 14px;
+}
+
+.skeleton__circle--progress {
+    width: 50px;
+    height: 50px;
+}
+
+.skeleton__line,
+.skeleton__tag,
+.skeleton__pill,
+.skeleton__button,
+.skeleton__checkbox,
+.skeleton__chart {
+    background: linear-gradient(90deg,
+            #eeeeeb 25%,
+            #f7f7f5 50%,
+            #eeeeeb 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.4s ease-in-out infinite;
+}
+
+.skeleton__line {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.skeleton__line--name {
+    width: 210px;
+    height: 16px;
+}
+
+.skeleton__line--subtitle {
+    width: 290px;
+}
+
+.skeleton__line--eyebrow {
+    width: 75px;
+}
+
+.skeleton__line--heading {
+    width: 125px;
+    height: 14px;
+}
+
+.skeleton__line--medium {
+    width: 130px;
+}
+
+.skeleton__line--short {
+    width: 75px;
+}
+
+.skeleton__line--meta {
+    width: 220px;
+    margin-top: 7px;
+}
+
+.skeleton__line--label {
+    width: 70px;
+}
+
+.skeleton__line--value {
+    width: 95px;
+}
+
+.skeleton__line--amount {
+    width: 130px;
+    height: 28px;
+}
+
+.skeleton__line--metric-value {
+    width: 90px;
+    height: 14px;
+}
+
+.skeleton__line--description {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.skeleton__line--step {
+    width: 65px;
+}
+
+.skeleton__pill {
+    width: 95px;
+    height: 34px;
+    border-radius: 10px;
+}
+
+.skeleton__pill--wide {
+    width: 165px;
+}
+
+.skeleton__button {
+    width: 72px;
+    height: 34px;
+    border-radius: 9px;
+}
+
+.skeleton__button--wide {
+    width: 105px;
+}
+
+.skeleton__button--full {
+    width: 100%;
+    margin-top: 14px;
+}
+
+.skeleton__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.skeleton__tag {
+    width: 105px;
+    height: 23px;
+    border-radius: 999px;
+}
+
+.skeleton__tag--medium {
+    width: 135px;
+}
+
+.skeleton__detail-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eeeeeb;
+}
+
+.skeleton__team-row {
+    gap: 10px;
+    padding: 9px 0;
+}
+
+.skeleton__stepper {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+.skeleton__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.skeleton__financial-main {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1.3fr);
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 14px;
+    padding: 16px 0;
+
+    border-top: 1px solid #eeeeeb;
+    border-bottom: 1px solid #eeeeeb;
+}
+
+.skeleton__chart {
+    width: 100%;
+    height: 72px;
+    border-radius: 8px;
+}
+
+.skeleton__metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.skeleton__metric {
+    padding: 10px 12px;
+
+    border: 1px solid #eeeeeb;
+    border-radius: 8px;
+    background: #fafaf8;
+
+    &:nth-child(n) {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+.skeleton__workbook {
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.skeleton__task {
+    gap: 8px;
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eeeeeb;
+}
+
+.skeleton__checkbox {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .skeleton__layout {
+        grid-template-columns: 260px minmax(0, 1fr);
+    }
+
+    .skeleton__right {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 900px) {
+    .skeleton__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton__right {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .skeleton {
+        padding: 8px;
+    }
+
+    .skeleton__header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .skeleton__header-actions {
+        flex-wrap: wrap;
+    }
+
+    .skeleton__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton__financial-main {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton__metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

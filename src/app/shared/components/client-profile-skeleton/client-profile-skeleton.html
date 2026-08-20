@@ -1,0 +1,159 @@
+<div class="skeleton" aria-hidden="true">
+
+    <!-- Header -->
+    <div class="skeleton__header">
+
+        <div class="skeleton__identity">
+            <div class="skeleton__circle skeleton__circle--avatar"></div>
+
+            <div class="skeleton__identity-lines">
+                <div class="skeleton__line skeleton__line--name"></div>
+                <div class="skeleton__line skeleton__line--subtitle"></div>
+            </div>
+        </div>
+
+        <div class="skeleton__header-actions">
+            <div class="skeleton__pill"></div>
+            <div class="skeleton__pill skeleton__pill--wide"></div>
+            <div class="skeleton__button"></div>
+            <div class="skeleton__button skeleton__button--wide"></div>
+        </div>
+
+    </div>
+
+    <!-- Dashboard -->
+    <div class="skeleton__layout">
+
+        <!-- Left -->
+        <div class="skeleton__left">
+
+            <div class="skeleton__card skeleton__card--archetype">
+                <div class="skeleton__line skeleton__line--eyebrow"></div>
+
+                <div class="skeleton__archetype-row">
+                    <div class="skeleton__circle skeleton__circle--small"></div>
+
+                    <div>
+                        <div class="skeleton__line skeleton__line--medium"></div>
+                        <div class="skeleton__line skeleton__line--short"></div>
+                    </div>
+                </div>
+
+                <div class="skeleton__tags">
+                    <div class="skeleton__tag"></div>
+                    <div class="skeleton__tag skeleton__tag--medium"></div>
+                    <div class="skeleton__tag"></div>
+                </div>
+            </div>
+
+            <div class="skeleton__card">
+                <div class="skeleton__line skeleton__line--heading"></div>
+
+                @for (row of [1, 2, 3, 4, 5, 6]; track row) {
+                <div class="skeleton__detail-row">
+                    <div class="skeleton__line skeleton__line--label"></div>
+                    <div class="skeleton__line skeleton__line--value"></div>
+                </div>
+                }
+            </div>
+
+            <div class="skeleton__card">
+                <div class="skeleton__line skeleton__line--heading"></div>
+
+                @for (member of [1, 2, 3]; track member) {
+                <div class="skeleton__team-row">
+                    <div class="skeleton__circle skeleton__circle--team"></div>
+
+                    <div class="skeleton__team-lines">
+                        <div class="skeleton__line skeleton__line--medium"></div>
+                        <div class="skeleton__line skeleton__line--short"></div>
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+
+        <!-- Center -->
+        <div class="skeleton__center">
+
+            <div class="skeleton__lifecycle">
+                <div class="skeleton__line skeleton__line--heading"></div>
+
+                <div class="skeleton__stepper">
+                    @for (step of [1, 2, 3, 4, 5, 6]; track step) {
+                    <div class="skeleton__step">
+                        <div class="skeleton__circle skeleton__circle--step"></div>
+                        <div class="skeleton__line skeleton__line--step"></div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="skeleton__card skeleton__card--financial">
+                <div class="skeleton__line skeleton__line--heading"></div>
+                <div class="skeleton__line skeleton__line--meta"></div>
+
+                <div class="skeleton__financial-main">
+                    <div>
+                        <div class="skeleton__line skeleton__line--label"></div>
+                        <div class="skeleton__line skeleton__line--amount"></div>
+                        <div class="skeleton__line skeleton__line--short"></div>
+                    </div>
+
+                    <div class="skeleton__chart"></div>
+                </div>
+
+                <div class="skeleton__metrics">
+                    @for (metric of [1, 2, 3, 4, 5, 6, 7, 8]; track metric) {
+                    <div class="skeleton__metric">
+                        <div class="skeleton__line skeleton__line--label"></div>
+                        <div class="skeleton__line skeleton__line--metric-value"></div>
+                        <div class="skeleton__line skeleton__line--short"></div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right -->
+        <div class="skeleton__right">
+
+            <div class="skeleton__card">
+                <div class="skeleton__line skeleton__line--eyebrow"></div>
+                <div class="skeleton__line skeleton__line--heading"></div>
+                <div class="skeleton__line skeleton__line--description"></div>
+                <div class="skeleton__line skeleton__line--description"></div>
+                <div class="skeleton__button skeleton__button--full"></div>
+            </div>
+
+            <div class="skeleton__card">
+                <div class="skeleton__line skeleton__line--heading"></div>
+
+                <div class="skeleton__workbook">
+                    <div class="skeleton__circle skeleton__circle--progress"></div>
+
+                    <div>
+                        <div class="skeleton__line skeleton__line--medium"></div>
+                        <div class="skeleton__line skeleton__line--short"></div>
+                    </div>
+                </div>
+
+                @for (task of [1, 2, 3]; track task) {
+                <div class="skeleton__task">
+                    <div class="skeleton__checkbox"></div>
+
+                    <div class="skeleton__task-lines">
+                        <div class="skeleton__line skeleton__line--medium"></div>
+                        <div class="skeleton__line skeleton__line--short"></div>
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

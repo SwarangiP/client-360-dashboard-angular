@@ -1,0 +1,45 @@
+<section class="lifecycle">
+    <div class="lifecycle__header">
+        <div class="lifecycle__title">
+            <h2>Lifecycle</h2>
+
+            <span>
+                Cycle {{ lifecycle().cycle }} · Day {{ lifecycle().day }}
+            </span>
+        </div>
+
+        <span class="lifecycle__review">
+            Next review · {{ lifecycle().nextReviewDate }}
+        </span>
+    </div>
+
+    <div class="lifecycle__steps" role="list" aria-label="Client lifecycle">
+        @for (stage of lifecycle().stages; track stage.key; let first = $first) {
+        <div class="lifecycle__step" [class.lifecycle__step--complete]="isComplete(stage.status)"
+            [class.lifecycle__step--current]="isCurrent(stage.status)"
+            [class.lifecycle__step--upcoming]="stage.status === 'upcoming'" role="listitem">
+            @if (!first) {
+            <div class="lifecycle__connector" [class.lifecycle__connector--complete]="
+              isComplete(stage.status)
+            " [class.lifecycle__connector--current]="
+              isCurrent(stage.status)
+            " aria-hidden="true"></div>
+            }
+
+            <div class="lifecycle__node" [attr.aria-current]="
+            isCurrent(stage.status) ? 'step' : null
+          ">
+                @if (isComplete(stage.status)) {
+                <span aria-hidden="true">✓</span>
+                } @else if (isCurrent(stage.status)) {
+                <span class="lifecycle__node-dot" aria-hidden="true"></span>
+                }
+            </div>
+
+            <span class="lifecycle__label">
+                {{ stage.label }}
+            </span>
+        </div>
+        }
+    </div>
+</section>

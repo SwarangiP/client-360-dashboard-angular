@@ -6,13 +6,21 @@ import { ClientHeader } from '../../components/client-header/client-header';
 import { ArchetypeCard } from '../../components/archetype-card/archetype-card';
 import { PersonalDetails } from '../../components/personal-details/personal-details';
 import { AssignedTeam } from '../../components/assigned-team/assigned-team';
+import { Household } from '../../components/household/household';
+import { LifecycleStepper } from '../../components/lifecycle-stepper/lifecycle-stepper';
+import { FinancialSnapshot } from '../../components/financial-snapshot/financial-snapshot';
+import { ClientProfileSkeleton } from '../../../../shared/components/client-profile-skeleton/client-profile-skeleton';
 
 @Component({
   selector: 'app-client-profile-page',
   imports: [ClientHeader,
     ArchetypeCard,
     PersonalDetails,
-    AssignedTeam
+    AssignedTeam,
+    Household,
+    LifecycleStepper,
+    FinancialSnapshot,
+    ClientProfileSkeleton
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',

@@ -1,0 +1,78 @@
+<section class="financial-snapshot">
+
+    <div class="financial-snapshot__header">
+        <div>
+            <h2>Financial snapshot</h2>
+
+            <span class="financial-snapshot__meta">
+                {{ snapshot().viewCount }} View
+                · synced {{ getLastSyncedLabel() }}
+                via {{ snapshot().syncSource }}
+            </span>
+        </div>
+
+        <button type="button" class="financial-snapshot__breakdown" (click)="onViewBreakdown()">
+            View full breakdown
+            <span aria-hidden="true">›</span>
+        </button>
+    </div>
+
+    <div class="financial-snapshot__hero">
+
+        <div class="financial-snapshot__net-worth">
+            <span class="financial-snapshot__label">
+                Net worth
+            </span>
+
+            <strong class="financial-snapshot__value">
+                {{ snapshot().netWorth.displayValue }}
+            </strong>
+
+            @if (snapshot().netWorth.deltaPercent !== null) {
+            <span class="financial-snapshot__delta">
+                <span aria-hidden="true">▲</span>
+                {{ Math.abs(snapshot().netWorth.deltaPercent!) }}%
+                · {{ snapshot().netWorth.deltaLabel }}
+            </span>
+            }
+        </div>
+
+        <div class="financial-snapshot__chart" aria-label="Net worth trend" role="img">
+            <svg viewBox="0 0 520 100" preserveAspectRatio="none" aria-hidden="true">
+                <polyline [attr.points]="getTrendPoints()" class="financial-snapshot__chart-line" />
+            </svg>
+        </div>
+
+    </div>
+
+    <div class="financial-snapshot__metrics">
+
+        <app-metric-tile label="Assets" [value]="snapshot().metrics.assets.displayValue ?? '—'"
+            [delta]="formatDelta(snapshot().metrics.assets.deltaPercent)" tone="positive" />
+
+        <app-metric-tile label="Liabilities" [value]="snapshot().metrics.liabilities.displayValue ?? '—'"
+            [delta]="formatDelta(snapshot().metrics.liabilities.deltaPercent)" tone="negative" />
+
+        <app-metric-tile label="Value under advisory" [value]="
+        snapshot().metrics.valueUnderAdvisory.displayValue ?? '—'
+      " delta="— No change" tone="neutral" />
+
+        <app-metric-tile label="Insurance cover" [value]="
+        snapshot().metrics.insuranceCover.displayValue ?? '—'
+      " [delta]="getInsuranceGap()" tone="warning" />
+
+        <app-metric-tile label="Monthly income" [value]="snapshot().monthly.income.displayValue ?? '—'"
+            [delta]="formatDelta(snapshot().monthly.income.deltaPercent)" tone="negative" />
+
+        <app-metric-tile label="Monthly expense" [value]="snapshot().monthly.expense.displayValue ?? '—'"
+            [delta]="formatDelta(snapshot().monthly.expense.deltaPercent)" tone="negative" />
+
+        <app-metric-tile label="Monthly surplus" [value]="snapshot().monthly.surplus.displayValue ?? '—'"
+            [delta]="formatDelta(snapshot().monthly.surplus.deltaPercent)" tone="positive" />
+
+        <app-metric-tile label="FBS" [value]="snapshot().monthly.fbs.value.toString()" [delta]="getFbsDelta()"
+            tone="positive" />
+
+    </div>
+
+</section>

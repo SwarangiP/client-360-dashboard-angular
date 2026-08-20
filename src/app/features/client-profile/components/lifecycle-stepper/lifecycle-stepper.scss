@@ -1,0 +1,150 @@
+:host {
+    display: block;
+}
+
+.lifecycle {
+    padding: 2px 2px 4px;
+    background: transparent;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 14px;
+    }
+
+    &__title {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+
+        h2 {
+            margin: 0;
+            color: #272723;
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        span {
+            color: #898983;
+            font-size: 11px;
+        }
+    }
+
+    &__review {
+        flex-shrink: 0;
+        color: #898983;
+        font-size: 11px;
+    }
+
+    &__steps {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(72px, 1fr));
+        align-items: start;
+    }
+
+    &__step {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        gap: 7px;
+
+        color: #a1a19b;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    &__connector {
+        position: absolute;
+        top: 7px;
+        left: calc(-50% + 8px);
+        right: calc(50% + 8px);
+
+        height: 3px;
+        border-radius: 999px;
+
+        background: #e7e7e3;
+
+        &--complete {
+            background: #4b745d;
+        }
+
+        &--current {
+            background: #20201d;
+        }
+    }
+
+    &__node {
+        position: relative;
+        z-index: 1;
+
+        display: grid;
+        width: 15px;
+        height: 15px;
+        place-items: center;
+
+        border: 2px solid #dfe0dc;
+        border-radius: 50%;
+
+        background: #f5f5f3;
+
+        color: #ffffff;
+        font-size: 8px;
+        font-weight: 700;
+    }
+
+    &__step--complete {
+        color: #666660;
+
+        .lifecycle__node {
+            border-color: #4b745d;
+            background: #4b745d;
+        }
+    }
+
+    &__step--current {
+        color: #282824;
+        font-weight: 650;
+
+        .lifecycle__node {
+            border-color: #20201d;
+            background: #f5f5f3;
+            box-shadow: 0 0 0 3px #e7e7e3;
+        }
+    }
+
+    &__node-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #20201d;
+    }
+
+    &__label {
+        width: 100%;
+        min-height: 24px;
+        padding: 0 2px;
+
+        color: inherit;
+        line-height: 1.2;
+        text-align: center;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 800px) {
+    .lifecycle {
+        overflow-x: auto;
+
+        &__header {
+            min-width: 620px;
+        }
+
+        &__steps {
+            min-width: 620px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<article class="metric-tile">
+    <span class="metric-tile__label">
+        {{ label() }}
+    </span>
+
+    <strong class="metric-tile__value">
+        {{ value() }}
+    </strong>
+
+    @if (delta()) {
+    <span class="metric-tile__delta" [class.metric-tile__delta--positive]="tone() === 'positive'"
+        [class.metric-tile__delta--negative]="tone() === 'negative'"
+        [class.metric-tile__delta--warning]="tone() === 'warning'"
+        [class.metric-tile__delta--neutral]="tone() === 'neutral'">
+        {{ delta() }}
+    </span>
+    }
+</article>

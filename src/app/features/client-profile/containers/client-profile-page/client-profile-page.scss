@@ -5,10 +5,10 @@
 
 .client-profile-layout {
     display: grid;
-    grid-template-columns: 280px minmax(0, 1fr) 300px;
-    gap: 12px;
+    grid-template-columns: 240px minmax(0, 1fr) 280px;
+    gap: 14px;
 
-    padding: 10px 12px 16px;
+    padding: 10px 14px 16px;
 
     background: #f5f5f3;
 
@@ -18,19 +18,15 @@
         min-width: 0;
     }
 
-    &__left {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    &__main {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
+    &__left,
+    &__main,
     &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .client-profile-layout__main {
         display: flex;
         flex-direction: column;
         gap: 10px;

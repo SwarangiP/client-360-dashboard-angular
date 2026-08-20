@@ -1,0 +1,63 @@
+:host {
+    display: block;
+    min-width: 0;
+}
+
+.metric-tile {
+    min-width: 0;
+    padding: 10px 12px;
+
+    border: 1px solid #ecece8;
+    border-radius: 8px;
+    background: #fafaf8;
+
+    &__label {
+        display: block;
+        min-height: 22px;
+
+        color: #898983;
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    &__value {
+        display: block;
+        margin-top: 6px;
+
+        overflow: hidden;
+
+        color: #272723;
+        font-size: 14px;
+        font-weight: 650;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__delta {
+        display: block;
+        margin-top: 5px;
+
+        font-size: 9px;
+        line-height: 1.2;
+
+        &--positive {
+            color: #4d8a68;
+        }
+
+        &--negative {
+            color: #b45a4c;
+        }
+
+        &--warning {
+            color: #c28a2d;
+        }
+
+        &--neutral {
+            color: #8a8a84;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<section class="household">
+    <div class="household__header">
+        <div>
+            <h2>Household</h2>
+
+            @if (members().length > 0) {
+            <span class="household__count">
+                {{ members().length }} linked
+            </span>
+            }
+        </div>
+
+        <button type="button" class="household__add" (click)="onAdd()">
+            + Add
+        </button>
+    </div>
+
+    @if (members().length > 0) {
+    <div class="household__members">
+        @for (member of members(); track member.id) {
+        <div class="household__member">
+            <div class="household__avatar" aria-hidden="true">
+                {{ member.initials }}
+            </div>
+
+            <span class="household__relation">
+                {{ member.relation }}
+            </span>
+        </div>
+        }
+    </div>
+    } @else {
+    <div class="household__empty">
+        No household members linked.
+    </div>
+    }
+</section>

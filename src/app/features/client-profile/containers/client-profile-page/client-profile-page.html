@@ -1,6 +1,6 @@
 @if (isLoading()) {
 <section class="page-state" aria-live="polite">
-    <p>Loading client profile...</p>
+    <app-client-profile-skeleton />
 </section>
 } @else if (errorMessage()) {
 <section class="page-state page-state--error" role="alert">
@@ -26,12 +26,14 @@
 
         <app-assigned-team [team]="clientProfile.assignedTeam" />
 
+        <app-household [members]="clientProfile.household" />
     </aside>
 
     <!-- Main column -->
     <main class="client-profile-layout__main">
-        <!-- Lifecycle, Financial Snapshot, Compliance, Activity -->
-        <!-- will be added here -->
+        <app-lifecycle-stepper [lifecycle]="clientProfile.lifecycle" />
+
+        <app-financial-snapshot [snapshot]="clientProfile.financialSnapshot" />
     </main>
 
     <!-- Right column -->
