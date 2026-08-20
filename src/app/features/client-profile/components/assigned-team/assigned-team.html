@@ -1,1 +1,27 @@
-<p>assigned-team works!</p>
+<section class="assigned-team">
+    <div class="assigned-team__header">
+        <h2>Assigned team</h2>
+    </div>
+
+    <div class="assigned-team__list">
+        @for (member of team(); track member.id) {
+        <div class="assigned-team__member">
+
+            <div class="assigned-team__avatar" aria-hidden="true">
+                {{ member.avatarInitials }}
+            </div>
+
+            <div class="assigned-team__info">
+                <strong>{{ member.name }}</strong>
+                <span>{{ member.role }}</span>
+            </div>
+
+            <button type="button" class="assigned-team__message" [attr.aria-label]="'Message ' + member.name"
+                (click)="onMessage(member)">
+                <svg lucideMessageSquare aria-hidden="true"></svg>
+            </button>
+
+        </div>
+        }
+    </div>
+</section>

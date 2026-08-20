@@ -5,12 +5,14 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ClientHeader } from '../../components/client-header/client-header';
 import { ArchetypeCard } from '../../components/archetype-card/archetype-card';
 import { PersonalDetails } from '../../components/personal-details/personal-details';
+import { AssignedTeam } from '../../components/assigned-team/assigned-team';
 
 @Component({
   selector: 'app-client-profile-page',
   imports: [ClientHeader,
     ArchetypeCard,
-    PersonalDetails
+    PersonalDetails,
+    AssignedTeam
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',
