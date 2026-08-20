@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
 import { RouterOutlet } from '@angular/router';
-
+import { Toast } from '../../shared/components/toast/toast';
 import {
   LucideHome,
   LucideBell,
@@ -22,6 +21,7 @@ import {
   selector: 'app-shell',
   imports: [
     RouterOutlet,
+    Toast,
     LucideHome,
     LucideBell,
     LucideUsers,

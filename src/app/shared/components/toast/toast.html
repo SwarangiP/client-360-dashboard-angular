@@ -1,0 +1,11 @@
+@if (toast(); as currentToast) {
+<div class="toast" role="status" aria-live="polite">
+    <span class="toast__message">
+        {{ currentToast.message }}
+    </span>
+
+    <button type="button" class="toast__close" aria-label="Dismiss notification" (click)="dismiss()">
+        ×
+    </button>
+</div>
+}
