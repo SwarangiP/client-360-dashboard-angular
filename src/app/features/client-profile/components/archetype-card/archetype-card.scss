@@ -1,0 +1,92 @@
+:host {
+    display: block;
+}
+
+.archetype-card {
+    padding: 16px;
+
+    border: 1px solid #e5e5e1;
+    border-radius: 12px;
+    background: #ffffff;
+
+    box-shadow: 0 1px 2px rgb(0 0 0 / 3%);
+
+    &__eyebrow {
+        margin: 0 0 14px;
+
+        color: #85857f;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+    }
+
+    &__icon {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        place-items: center;
+
+        border-radius: 12px;
+        background: #e5f1e8;
+        color: #3f7758;
+    }
+
+    &__icon-svg {
+        width: 21px;
+        height: 21px;
+        stroke-width: 1.7;
+    }
+
+    &__identity {
+        min-width: 0;
+
+        h2 {
+            margin: 0;
+
+            color: #292925;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        span {
+            display: block;
+            margin-top: 4px;
+
+            color: #85857f;
+            font-size: 11px;
+            line-height: 1.2;
+        }
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        margin-top: 15px;
+    }
+
+    &__tag {
+        padding: 5px 8px;
+
+        border: 1px solid #e5e5e1;
+        border-radius: 999px;
+
+        background: #fbfbf9;
+        color: #66665f;
+
+        font-size: 9px;
+        line-height: 1.2;
+    }
+}

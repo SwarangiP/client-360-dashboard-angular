@@ -1,0 +1,24 @@
+<section class="archetype-card">
+    <p class="archetype-card__eyebrow">
+        Archetype
+    </p>
+
+    <div class="archetype-card__header">
+        <div class="archetype-card__icon">
+            <svg lucideSparkles class="archetype-card__icon-svg" aria-hidden="true"></svg>
+        </div>
+
+        <div class="archetype-card__identity">
+            <h2>{{ archetype().name }}</h2>
+            <span>{{ archetype().generation }}</span>
+        </div>
+    </div>
+
+    <div class="archetype-card__tags">
+        @for (tag of archetype().tags; track tag) {
+        <span class="archetype-card__tag">
+            {{ tag }}
+        </span>
+        }
+    </div>
+</section>
