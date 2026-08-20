@@ -1,0 +1,138 @@
+<div class="client-header">
+
+    <!-- Top utility bar -->
+    <div class="client-header__topbar">
+
+        <!-- Breadcrumb -->
+        <nav class="client-header__breadcrumb" aria-label="Breadcrumb">
+            <span>
+                {{ client().breadcrumb.section }}
+            </span>
+
+            <svg lucideChevronRight class="client-header__breadcrumb-icon" aria-hidden="true"></svg>
+
+            <span>
+                {{ client().breadcrumb.totalClients | number }}
+            </span>
+
+            <svg lucideChevronRight class="client-header__breadcrumb-icon" aria-hidden="true"></svg>
+
+            <strong>
+                {{ client().name }}
+            </strong>
+        </nav>
+
+        <!-- Utility actions -->
+        <div class="client-header__utility-actions">
+
+            <button type="button" class="client-header__utility-button" aria-label="Create" (click)="onCreate()">
+                <svg lucidePlus aria-hidden="true"></svg>
+            </button>
+
+            <button type="button" class="client-header__utility-button client-header__utility-button--notification"
+                aria-label="Notifications" (click)="onNotifications()">
+                <svg lucideBell aria-hidden="true"></svg>
+
+                <span class="client-header__notification-dot" aria-hidden="true"></span>
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Client header -->
+    <div class="client-header__main">
+
+        <!-- Identity -->
+        <div class="client-header__identity">
+
+            <div class="client-header__avatar" aria-hidden="true">
+                {{ client().avatarInitials }}
+            </div>
+
+            <div class="client-header__identity-content">
+
+                <div class="client-header__name-row">
+                    <h1 class="client-header__name">
+                        {{ client().name }}
+                    </h1>
+
+                    <span class="client-header__client-code">
+                        {{ client().id }}
+                    </span>
+                </div>
+
+                <p class="client-header__archetype">
+                    {{ client().archetype.name }}
+                    · {{ client().archetype.generation }}
+                    · {{ client().archetype.stage }}
+                    · {{ client().archetype.city }}
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="client-header__status">
+
+            <div class="client-header__score">
+                <span class="client-header__score-label">
+                    FBS
+                </span>
+
+                <strong class="client-header__score-value">
+                    {{ client().scores.fbs.value }}
+                </strong>
+
+                <span class="client-header__score-percentile">
+                    {{ client().scores.fbs.percentile }}
+                </span>
+            </div>
+
+            <div class="client-header__status-pill">
+                <span class="client-header__status-dot"></span>
+
+                <span>
+                    {{ client().scores.status.label }}
+                </span>
+
+                <span>·</span>
+
+                <span>
+                    {{ client().scores.status.subLabel }}
+                </span>
+            </div>
+
+        </div>
+
+        <!-- Client actions -->
+        <div class="client-header__actions">
+
+            <button type="button" class="client-header__action" (click)="onCall()">
+                <svg lucidePhone aria-hidden="true"></svg>
+
+                <span>Call</span>
+            </button>
+
+            <button type="button" class="client-header__action" (click)="onMessage()">
+                <svg lucideMessageSquare aria-hidden="true"></svg>
+
+                <span>Message</span>
+            </button>
+
+            <button type="button" class="client-header__action client-header__action--primary" (click)="onSendFwp()">
+                <svg lucideSend aria-hidden="true"></svg>
+
+                <span>Send FWP</span>
+            </button>
+
+            <button type="button" class="client-header__more" aria-label="More client actions"
+                (click)="onMoreActions()">
+                <svg lucideEllipsisVertical aria-hidden="true"></svg>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

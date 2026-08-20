@@ -158,9 +158,9 @@ The Client Profile feature is designed to explicitly support:
 - [x] Responsive shell foundation
 - [x] Lucide icon integration
 - [x] Initial project documentation
+- [x] Client header and breadcrumb
 
 ### Remaining
-- [ ] Client header and breadcrumb
 - [ ] Archetype card
 - [ ] Personal details
 - [ ] Assigned team

@@ -12,26 +12,5 @@
     </button>
 </section>
 } @else if (client(); as clientProfile) {
-<main class="client-profile">
-    <h1>{{ clientProfile.name }}</h1>
-    <p>{{ clientProfile.id }}</p>
-
-    <p>
-        {{ clientProfile.archetype.name }}
-        · {{ clientProfile.archetype.generation }}
-        · {{ clientProfile.archetype.stage }}
-        · {{ clientProfile.archetype.city }}
-    </p>
-
-    <p>
-        Net worth:
-        {{ clientProfile.financialSnapshot.netWorth.displayValue }}
-    </p>
-
-    <p>
-        Lifecycle:
-        {{ clientProfile.lifecycle.cycle }}
-        · Day {{ clientProfile.lifecycle.day }}
-    </p>
-</main>
+<app-client-header [client]="clientProfile" />
 }
