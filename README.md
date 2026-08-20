@@ -159,11 +159,11 @@ The Client Profile feature is designed to explicitly support:
 - [x] Lucide icon integration
 - [x] Initial project documentation
 - [x] Client header and breadcrumb
+- [x] Archetype card
+- [x] Personal details
+- [x] Assigned team
 
 ### Remaining
-- [ ] Archetype card
-- [ ] Personal details
-- [ ] Assigned team
 - [ ] Household
 - [ ] Lifecycle stepper
 - [ ] Financial snapshot and sparkline
