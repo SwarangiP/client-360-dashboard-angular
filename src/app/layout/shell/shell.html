@@ -1,0 +1,213 @@
+<div class="shell">
+
+    <aside class="navigation" aria-label="Primary navigation">
+
+        <!-- Brand -->
+        <div class="navigation__brand">
+            <div class="navigation__brand-mark" aria-hidden="true">
+                1F
+            </div>
+
+            <div class="navigation__brand-info">
+                <div class="navigation__brand-name">
+                    EOS
+                </div>
+
+                <div class="navigation__brand-subtitle">
+                    1Finance
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="navigation__search-wrapper">
+            <label class="navigation__search">
+                <svg lucideSearch class="navigation__search-icon" aria-hidden="true"></svg>
+
+                <input type="search" placeholder="Search..." aria-label="Search navigation" />
+
+                <span class="navigation__shortcut">
+                    ⌘K
+                </span>
+            </label>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navigation__menu">
+
+            <!-- Workspace -->
+            <section class="navigation__section">
+                <h2 class="navigation__section-title">
+                    Workspace
+                </h2>
+
+                <div class="navigation__items">
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideHome class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Home
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideBell class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Inbox
+                        </span>
+
+                        <span class="navigation__item-badge">
+                            7
+                        </span>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- Client Management -->
+            <section class="navigation__section">
+                <h2 class="navigation__section-title">
+                    Client Management
+                </h2>
+
+                <div class="navigation__items">
+
+                    <button type="button" class="navigation__item navigation__item--active" aria-current="page">
+                        <svg lucideUsers class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Clients
+                        </span>
+
+                        <span class="navigation__item-badge">
+                            147K
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucidePanelTop class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Pipeline
+                        </span>
+
+                        <span class="navigation__item-badge">
+                            184
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideMessageSquare class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Communications
+                        </span>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- Advisory -->
+            <section class="navigation__section">
+                <h2 class="navigation__section-title">
+                    Advisory
+                </h2>
+
+                <div class="navigation__items">
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideBookOpen class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Workbook
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideCircleStar class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Action Plans
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideCalendarDays class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Meetings
+                        </span>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- Operations -->
+            <section class="navigation__section">
+                <h2 class="navigation__section-title">
+                    Operations
+                </h2>
+
+                <div class="navigation__items">
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideShieldCheck class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Compliance
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideWalletCards class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Payments
+                        </span>
+                    </button>
+
+                    <button type="button" class="navigation__item">
+                        <svg lucideChartNoAxesColumn class="navigation__item-icon" aria-hidden="true"></svg>
+
+                        <span class="navigation__item-label">
+                            Analytics
+                        </span>
+                    </button>
+
+                </div>
+            </section>
+
+        </nav>
+
+        <!-- Account -->
+        <div class="navigation__account">
+
+            <div class="navigation__account-avatar">
+                DR
+            </div>
+
+            <div class="navigation__account-info">
+                <span class="navigation__account-name">
+                    Devika Rao
+                </span>
+
+                <span class="navigation__account-role">
+                    Financial Coach
+                </span>
+            </div>
+
+            <button type="button" class="navigation__account-menu" aria-label="Open account menu">
+                <svg lucideEllipsisVertical aria-hidden="true"></svg>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <main class="shell__content">
+        <router-outlet />
+    </main>
+
+</div>

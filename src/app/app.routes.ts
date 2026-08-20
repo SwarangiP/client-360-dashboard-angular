@@ -4,8 +4,14 @@ export const routes: Routes = [
     {
         path: '',
         loadComponent: () =>
-            import('./features/client-profile/containers/client-profile-page/client-profile-page')
-                .then((m) => m.ClientProfilePage)
+            import('./layout/shell/shell').then((m) => m.Shell),
+        children: [
+            {
+                path: '',
+                loadComponent: () =>
+                    import('./features/client-profile/containers/client-profile-page/client-profile-page')
+                        .then((m) => m.ClientProfilePage)
+            }]
     },
     {
         path: '**',
