@@ -4,11 +4,13 @@ import { ClientProfile } from '../../models/client-profile.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ClientHeader } from '../../components/client-header/client-header';
 import { ArchetypeCard } from '../../components/archetype-card/archetype-card';
+import { PersonalDetails } from '../../components/personal-details/personal-details';
 
 @Component({
   selector: 'app-client-profile-page',
   imports: [ClientHeader,
-    ArchetypeCard
+    ArchetypeCard,
+    PersonalDetails
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',

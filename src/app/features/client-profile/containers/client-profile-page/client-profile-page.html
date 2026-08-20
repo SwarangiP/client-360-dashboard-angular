@@ -1,11 +1,42 @@
 @if (isLoading()) {
-<p>Loading...</p>
+<section class="page-state" aria-live="polite">
+    <p>Loading client profile...</p>
+</section>
 } @else if (errorMessage()) {
-<button type="button" (click)="retry()">Retry</button>
+<section class="page-state page-state--error" role="alert">
+    <h2>Unable to load client profile</h2>
+    <p>{{ errorMessage() }}</p>
+
+    <button type="button" (click)="retry()">
+        Retry
+    </button>
+</section>
 } @else if (client(); as clientProfile) {
+
 <app-client-header [client]="clientProfile" />
 
 <div class="client-profile-layout">
-    <app-archetype-card [archetype]="clientProfile.archetype" />
+
+    <!-- Left column -->
+    <aside class="client-profile-layout__left">
+
+        <app-archetype-card [archetype]="clientProfile.archetype" />
+
+        <app-personal-details [personal]="clientProfile.personal" />
+
+    </aside>
+
+    <!-- Main column -->
+    <main class="client-profile-layout__main">
+        <!-- Lifecycle, Financial Snapshot, Compliance, Activity -->
+        <!-- will be added here -->
+    </main>
+
+    <!-- Right column -->
+    <aside class="client-profile-layout__right">
+        <!-- Next Action, Workbook -->
+        <!-- will be added here -->
+    </aside>
+
 </div>
 }

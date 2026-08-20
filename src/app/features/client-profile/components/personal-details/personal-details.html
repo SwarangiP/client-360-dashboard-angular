@@ -1,0 +1,53 @@
+<section class="personal-details">
+    <div class="personal-details__header">
+        <h2>Personal</h2>
+
+        <button type="button" class="personal-details__edit" (click)="onEdit()">
+            Edit
+        </button>
+    </div>
+
+    <dl class="personal-details__list">
+        <div class="personal-details__row">
+            <dt>Age</dt>
+            <dd>
+                {{ personal().age }} · {{ personal().gender }}
+            </dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>Status</dt>
+            <dd>{{ personal().maritalStatus }}</dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>Dependents</dt>
+            <dd>{{ personal().dependents }}</dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>Occupation</dt>
+            <dd>{{ personal().occupation }}</dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>Employer</dt>
+            <dd>{{ personal().employer }}</dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>City</dt>
+            <dd>{{ personal().city }}</dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>Lead source</dt>
+            <dd>{{ personal().leadSource }}</dd>
+        </div>
+
+        <div class="personal-details__row">
+            <dt>Client since</dt>
+            <dd>{{ personal().clientSince }}</dd>
+        </div>
+    </dl>
+</section>
