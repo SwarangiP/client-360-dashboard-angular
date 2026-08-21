@@ -1,9 +1,10 @@
 :host {
     display: block;
+    min-width: 0;
 }
 
 .archetype-card {
-    padding: 16px;
+    padding: 13px 14px;
 
     border: 1px solid #e5e5e1;
     border-radius: 12px;
@@ -12,10 +13,10 @@
     box-shadow: 0 1px 2px rgb(0 0 0 / 3%);
 
     &__eyebrow {
-        margin: 0 0 14px;
+        margin: 0 0 10px;
 
         color: #85857f;
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 600;
         letter-spacing: 0.08em;
         line-height: 1.2;
@@ -25,24 +26,24 @@
     &__header {
         display: flex;
         align-items: center;
-        gap: 11px;
+        gap: 9px;
     }
 
     &__icon {
         display: grid;
-        width: 46px;
-        height: 46px;
+        width: 42px;
+        height: 42px;
         flex-shrink: 0;
         place-items: center;
 
-        border-radius: 12px;
+        border-radius: 10px;
         background: #e5f1e8;
         color: #3f7758;
     }
 
     &__icon-svg {
-        width: 21px;
-        height: 21px;
+        width: 20px;
+        height: 20px;
         stroke-width: 1.7;
     }
 
@@ -52,19 +53,24 @@
         h2 {
             margin: 0;
 
+            overflow: hidden;
+
             color: #292925;
             font-family: Georgia, serif;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             line-height: 1.2;
+            letter-spacing: -0.01em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         span {
             display: block;
-            margin-top: 4px;
+            margin-top: 3px;
 
             color: #85857f;
-            font-size: 11px;
+            font-size: 10px;
             line-height: 1.2;
         }
     }
@@ -72,21 +78,27 @@
     &__tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: 0;
 
-        margin-top: 15px;
+        margin-top: 10px;
     }
 
     &__tag {
-        padding: 5px 8px;
+        padding: 0;
 
-        border: 1px solid #e5e5e1;
-        border-radius: 999px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
 
-        background: #fbfbf9;
-        color: #66665f;
+        color: #73736d;
+        font-size: 10px;
+        line-height: 1.5;
 
-        font-size: 9px;
-        line-height: 1.2;
+        &:not(:last-child)::after {
+            content: ' · ';
+            margin: 0 4px;
+
+            color: #a2a29c;
+        }
     }
 }
