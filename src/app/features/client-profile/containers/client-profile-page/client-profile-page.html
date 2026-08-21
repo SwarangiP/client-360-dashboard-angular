@@ -42,8 +42,8 @@
 
     <!-- Right column -->
     <aside class="client-profile-layout__right">
-        <!-- Next Action, Workbook -->
-        <!-- will be added here -->
+        <app-next-action [action]="clientProfile.nextAction" (generate)="onGenerateFwp()"
+            (moreClicked)="onNextActionMore()" />
     </aside>
 
 </div>

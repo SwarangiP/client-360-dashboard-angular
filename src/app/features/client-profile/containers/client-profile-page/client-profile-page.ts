@@ -12,6 +12,8 @@ import { FinancialSnapshot } from '../../components/financial-snapshot/financial
 import { ClientProfileSkeleton } from '../../../../shared/components/client-profile-skeleton/client-profile-skeleton';
 import { Compliance } from '../../components/compliance/compliance';
 import { ActivityFeed } from '../../components/activity-feed/activity-feed';
+import { NextAction } from '../../components/next-action/next-action';
+import { ToastService } from '../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-client-profile-page',
@@ -24,7 +26,8 @@ import { ActivityFeed } from '../../components/activity-feed/activity-feed';
     FinancialSnapshot,
     ClientProfileSkeleton,
     Compliance,
-    ActivityFeed
+    ActivityFeed,
+    NextAction,
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',
@@ -33,6 +36,7 @@ import { ActivityFeed } from '../../components/activity-feed/activity-feed';
 export class ClientProfilePage {
   private readonly clientService = inject(ClientService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly toastService = inject(ToastService);
 
   readonly client = signal<ClientProfile | null>(null);
   readonly isLoading = signal(false);
@@ -65,4 +69,11 @@ export class ClientProfilePage {
     this.loadClientProfile();
   }
 
+  onGenerateFwp(): void {
+    this.toastService.show('Generating FWP v3...');
+  }
+
+  onNextActionMore(): void {
+    this.toastService.show('More action options opened.');
+  }
 }

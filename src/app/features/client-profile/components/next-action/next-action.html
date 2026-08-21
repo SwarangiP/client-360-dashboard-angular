@@ -1,1 +1,41 @@
-<p>next-action works!</p>
+<section class="next-action">
+
+    <div class="next-action__eyebrow" [class.next-action__eyebrow--overdue]="action().status === 'overdue'"
+        [class.next-action__eyebrow--due]="action().status === 'due'"
+        [class.next-action__eyebrow--scheduled]="action().status === 'scheduled'">
+        <span>Next action</span>
+
+        <span>·</span>
+
+        <span>
+            {{ getStatusLabel(action().status) }}
+        </span>
+
+        @if (action().status === 'overdue') {
+        <span>
+            · {{ action().overdueByDays }}D
+        </span>
+        }
+
+        <button type="button" class="next-action__more" aria-label="More next action options" (click)="onMoreClicked()">
+            <svg lucideEllipsisVertical aria-hidden="true"></svg>
+        </button>
+    </div>
+
+    <h2 class="next-action__title">
+        {{ action().title }}
+    </h2>
+
+    <p class="next-action__description">
+        {{ action().description }}
+    </p>
+
+    <button type="button" class="next-action__cta" (click)="onGenerate()">
+        <svg lucideSend aria-hidden="true"></svg>
+
+        <span>
+            {{ action().primaryCta }}
+        </span>
+    </button>
+
+</section>
