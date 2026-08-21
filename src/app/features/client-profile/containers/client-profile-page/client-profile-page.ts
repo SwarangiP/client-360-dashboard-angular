@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ClientProfile, Task } from '../../models/client-profile.model';
 import { ClientService } from '../../services/client.service';
-import { ClientProfile } from '../../models/client-profile.model';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ToastService } from '../../../../core/services/toast.service';
 import { ClientHeader } from '../../components/client-header/client-header';
 import { ArchetypeCard } from '../../components/archetype-card/archetype-card';
 import { PersonalDetails } from '../../components/personal-details/personal-details';
@@ -9,69 +10,99 @@ import { AssignedTeam } from '../../components/assigned-team/assigned-team';
 import { Household } from '../../components/household/household';
 import { LifecycleStepper } from '../../components/lifecycle-stepper/lifecycle-stepper';
 import { FinancialSnapshot } from '../../components/financial-snapshot/financial-snapshot';
-import { ClientProfileSkeleton } from '../../../../shared/components/client-profile-skeleton/client-profile-skeleton';
 import { Compliance } from '../../components/compliance/compliance';
 import { ActivityFeed } from '../../components/activity-feed/activity-feed';
 import { NextAction } from '../../components/next-action/next-action';
-import { ToastService } from '../../../../core/services/toast.service';
 import { WorkbookPanel } from '../../components/workbook-panel/workbook-panel';
-import { Task } from '../../models/client-profile.model';
+import { ClientProfileSkeleton } from '../../../../shared/components/client-profile-skeleton/client-profile-skeleton';
 
 @Component({
   selector: 'app-client-profile-page',
-  imports: [ClientHeader,
+  standalone: true,
+  imports: [
+    ClientHeader,
     ArchetypeCard,
     PersonalDetails,
     AssignedTeam,
     Household,
     LifecycleStepper,
     FinancialSnapshot,
-    ClientProfileSkeleton,
     Compliance,
     ActivityFeed,
     NextAction,
-    WorkbookPanel
+    WorkbookPanel,
+    ClientProfileSkeleton
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ClientProfilePage {
-  private readonly clientService = inject(ClientService);
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly toastService = inject(ToastService);
-
+export class ClientProfilePage implements OnInit {
   readonly client = signal<ClientProfile | null>(null);
-  readonly isLoading = signal(false);
-  readonly errorMessage = signal<string | null>(null);
   readonly tasks = signal<Task[]>([]);
 
-  constructor() {
-    this.loadClientProfile();
+  readonly isLoading = signal(true);
+  readonly errorMessage = signal<string | null>(null);
+
+  private readonly clientService = inject(ClientService);
+  private readonly toastService = inject(ToastService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
+  ngOnInit(): void {
+    const forceError =
+      this.route.snapshot.queryParamMap.get('error') === 'true';
+
+    this.loadClientProfile(forceError);
   }
 
-  loadClientProfile(): void {
+  private loadClientProfile(forceError = false): void {
     this.isLoading.set(true);
     this.errorMessage.set(null);
 
-    this.clientService.getClientProfile().pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (clientProfile) => {
-          this.client.set(clientProfile);
-          this.tasks.set(clientProfile.tasks);
-          this.isLoading.set(false);
-        },
-        error: (error: unknown) => {
-          console.error(error);
-          this.client.set(null);
-          this.isLoading.set(false);
-          this.errorMessage.set('Unable to load client profile.');
-        }
-      });
+    this.clientService.getClientProfile(forceError).subscribe({
+      next: (clientProfile) => {
+        this.client.set(clientProfile);
+        this.tasks.set(clientProfile.tasks);
+        this.isLoading.set(false);
+      },
+
+      error: (error: Error) => {
+        this.client.set(null);
+        this.tasks.set([]);
+        this.isLoading.set(false);
+
+        this.errorMessage.set(
+          error.message || 'Unable to load client profile.'
+        );
+      }
+    });
   }
 
   retry(): void {
-    this.loadClientProfile();
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {},
+      replaceUrl: true
+    });
+
+    this.loadClientProfile(false);
+  }
+
+  onCall(): void {
+    this.toastService.show('Calling client...');
+  }
+
+  onMessage(): void {
+    this.toastService.show('Opening message composer...');
+  }
+
+  onSendFwp(): void {
+    this.toastService.show('FWP sent for review.');
+  }
+
+  onHeaderMore(): void {
+    this.toastService.show('More client actions opened.');
   }
 
   onGenerateFwp(): void {
@@ -98,9 +129,15 @@ export class ClientProfilePage {
   }
 
   onAddTask(label: string): void {
+    const trimmedLabel = label.trim();
+
+    if (!trimmedLabel) {
+      return;
+    }
+
     const newTask: Task = {
       id: crypto.randomUUID(),
-      label,
+      label: trimmedLabel,
       dueLabel: 'Today',
       assigneeTag: '@me',
       completed: false

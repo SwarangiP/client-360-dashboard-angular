@@ -1,23 +1,38 @@
 @if (isLoading()) {
-<section class="page-state" aria-live="polite">
-    <app-client-profile-skeleton />
-</section>
-} @else if (errorMessage()) {
-<section class="page-state page-state--error" role="alert">
-    <h2>Unable to load client profile</h2>
-    <p>{{ errorMessage() }}</p>
 
-    <button type="button" (click)="retry()">
+<app-client-profile-skeleton />
+
+} @else if (errorMessage(); as error) {
+
+<section class="page-state page-state--error" role="alert">
+    <div class="page-state__icon" aria-hidden="true">
+        !
+    </div>
+
+    <h2>
+        Unable to load client profile
+    </h2>
+
+    <p>
+        {{ error }}
+    </p>
+
+    <button type="button" class="page-state__retry" (click)="retry()">
         Retry
     </button>
 </section>
+
 } @else if (client(); as clientProfile) {
 
-<app-client-header [client]="clientProfile" />
+<app-client-header [client]="clientProfile" (call)="onCall()" (message)="onMessage()" (sendFwp)="onSendFwp()"
+    (moreActions)="onHeaderMore()" />
 
 <div class="client-profile-layout">
 
-    <!-- Left column -->
+    <!-- ==========================================
+         LEFT COLUMN
+         ========================================== -->
+
     <aside class="client-profile-layout__left">
 
         <app-archetype-card [archetype]="clientProfile.archetype" />
@@ -27,10 +42,15 @@
         <app-assigned-team [team]="clientProfile.assignedTeam" />
 
         <app-household [members]="clientProfile.household" />
+
     </aside>
 
-    <!-- Main column -->
+    <!-- ==========================================
+         CENTER COLUMN
+         ========================================== -->
+
     <main class="client-profile-layout__main">
+
         <app-lifecycle-stepper [lifecycle]="clientProfile.lifecycle" />
 
         <app-financial-snapshot [snapshot]="clientProfile.financialSnapshot" />
@@ -38,18 +58,24 @@
         <app-compliance [compliance]="clientProfile.compliance" />
 
         <app-activity-feed [activities]="clientProfile.activity" />
+
     </main>
 
-    <!-- Right column -->
+    <!-- ==========================================
+         RIGHT COLUMN
+         ========================================== -->
+
     <aside class="client-profile-layout__right">
+
         <app-next-action [action]="clientProfile.nextAction" (generate)="onGenerateFwp()"
             (moreClicked)="onNextActionMore()" />
 
         <app-workbook-panel [workbook]="clientProfile.workbook" [tasks]="tasks()" [docsCount]="clientProfile.docsCount"
             [paymentSummary]="clientProfile.paymentSummary" (taskToggled)="onTaskToggled($event)"
             (addTask)="onAddTask($event)" />
+
     </aside>
 
-
 </div>
+
 }
