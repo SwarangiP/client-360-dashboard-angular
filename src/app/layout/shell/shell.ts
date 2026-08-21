@@ -4,7 +4,7 @@ import { Toast } from '../../shared/components/toast/toast';
 import {
   LucideHome,
   LucideBell,
-  LucideUsers,
+  LucideUsersRound,
   LucidePanelTop,
   LucideMessageSquare,
   LucideBookOpen,
@@ -26,7 +26,7 @@ import {
     Toast,
     LucideHome,
     LucideBell,
-    LucideUsers,
+    LucideUsersRound,
     LucidePanelTop,
     LucideMessageSquare,
     LucideBookOpen,
