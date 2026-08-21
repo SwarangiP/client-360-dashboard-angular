@@ -165,13 +165,13 @@ The Client Profile feature is designed to explicitly support:
 - [x] Household
 - [x] Lifecycle stepper
 - [x] Financial snapshot and sparkline
+- [x] Compliance section
+- [x] Activity filtering
+- [x] Task interactions
+- [x] Loading/error/empty UI states
 
 ### Remaining
-- [ ] Compliance section
-- [ ] Activity filtering
 - [ ] Next Action and Workbook panel
-- [ ] Task interactions
-- [ ] Loading/error/empty UI states
 - [ ] Final responsive and accessibility refinement
 - [ ] Unit tests
 - [ ] Final submission polish
