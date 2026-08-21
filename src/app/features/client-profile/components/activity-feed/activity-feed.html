@@ -1,0 +1,109 @@
+<section class="activity-feed">
+    <div class="activity-feed__header">
+
+        <h2>Activity</h2>
+
+        <div class="activity-feed__filters" role="tablist" aria-label="Activity filters">
+            <button type="button" role="tab" class="activity-feed__filter"
+                [class.activity-feed__filter--active]="isActiveFilter('all')"
+                [attr.aria-selected]="isActiveFilter('all')" (click)="setFilter('all')">
+                All
+            </button>
+
+            <button type="button" role="tab" class="activity-feed__filter"
+                [class.activity-feed__filter--active]="isActiveFilter('meeting')"
+                [attr.aria-selected]="isActiveFilter('meeting')" (click)="setFilter('meeting')">
+                Meetings
+            </button>
+
+            <button type="button" role="tab" class="activity-feed__filter"
+                [class.activity-feed__filter--active]="isActiveFilter('note')"
+                [attr.aria-selected]="isActiveFilter('note')" (click)="setFilter('note')">
+                Notes
+            </button>
+
+            <button type="button" role="tab" class="activity-feed__filter"
+                [class.activity-feed__filter--active]="isActiveFilter('doc')"
+                [attr.aria-selected]="isActiveFilter('doc')" (click)="setFilter('doc')">
+                Docs
+            </button>
+
+            <button type="button" role="tab" class="activity-feed__filter"
+                [class.activity-feed__filter--active]="isActiveFilter('call')"
+                [attr.aria-selected]="isActiveFilter('call')" (click)="setFilter('call')">
+                Calls
+            </button>
+        </div>
+
+    </div>
+
+    @if (filteredActivities().length > 0) {
+
+    <div class="activity-feed__list">
+        @for (activity of filteredActivities(); track activity.id) {
+
+        <article class="activity-item">
+
+            <div class="activity-item__icon" aria-hidden="true">
+
+                @switch (activity.type) {
+                @case ('meeting') {
+                <svg lucideCalendarDays></svg>
+                }
+
+                @case ('note') {
+                <svg lucideMessageSquare></svg>
+                }
+
+                @case ('doc') {
+                <svg lucideBookOpen></svg>
+                }
+
+                @case ('call') {
+                <svg lucidePhone></svg>
+                }
+                }
+
+            </div>
+
+            <div class="activity-item__content">
+
+                <div class="activity-item__title-row">
+                    <strong>
+                        {{ activity.title }}
+                    </strong>
+
+                    <span>
+                        {{ activity.author }}
+                    </span>
+                </div>
+
+                <div class="activity-item__meta">
+                    {{ activity.timestamp | displayDate:true }}
+
+                    @if (activity.meta) {
+                    <span> · {{ activity.meta }}</span>
+                    }
+                </div>
+
+                @if (activity.description) {
+                <p>
+                    {{ activity.description }}
+                </p>
+                }
+
+            </div>
+
+        </article>
+        }
+    </div>
+
+    } @else {
+
+    <div class="activity-feed__empty">
+        <p>No activity found for this filter.</p>
+    </div>
+
+    }
+
+</section>

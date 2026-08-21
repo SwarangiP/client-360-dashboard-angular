@@ -1,0 +1,31 @@
+<section class="compliance">
+    <div class="compliance__header">
+        <div>
+            <h2>Compliance</h2>
+
+            <span class="compliance__summary">
+                {{ compliance().verifiedCount }} verified
+                ·
+                {{ compliance().pendingCount }} pending
+            </span>
+        </div>
+    </div>
+
+    <div class="compliance__grid">
+        @for (item of compliance().items; track item.id) {
+        <article class="compliance-item" [class.compliance-item--verified]="item.status === 'verified'"
+            [class.compliance-item--pending]="item.status === 'pending'" [class.compliance-item--action-required]="
+          item.status === 'action_required'
+        ">
+            <div class="compliance-item__status" [attr.aria-label]="getStatusLabel(item.status)">
+                {{ getStatusIcon(item.status) }}
+            </div>
+
+            <div class="compliance-item__content">
+                <strong>{{ item.label }}</strong>
+                <span>{{ item.subLabel }}</span>
+            </div>
+        </article>
+        }
+    </div>
+</section>

@@ -10,6 +10,8 @@ import { Household } from '../../components/household/household';
 import { LifecycleStepper } from '../../components/lifecycle-stepper/lifecycle-stepper';
 import { FinancialSnapshot } from '../../components/financial-snapshot/financial-snapshot';
 import { ClientProfileSkeleton } from '../../../../shared/components/client-profile-skeleton/client-profile-skeleton';
+import { Compliance } from '../../components/compliance/compliance';
+import { ActivityFeed } from '../../components/activity-feed/activity-feed';
 
 @Component({
   selector: 'app-client-profile-page',
@@ -20,7 +22,9 @@ import { ClientProfileSkeleton } from '../../../../shared/components/client-prof
     Household,
     LifecycleStepper,
     FinancialSnapshot,
-    ClientProfileSkeleton
+    ClientProfileSkeleton,
+    Compliance,
+    ActivityFeed
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',

@@ -162,11 +162,11 @@ The Client Profile feature is designed to explicitly support:
 - [x] Archetype card
 - [x] Personal details
 - [x] Assigned team
+- [x] Household
+- [x] Lifecycle stepper
+- [x] Financial snapshot and sparkline
 
 ### Remaining
-- [ ] Household
-- [ ] Lifecycle stepper
-- [ ] Financial snapshot and sparkline
 - [ ] Compliance section
 - [ ] Activity filtering
 - [ ] Next Action and Workbook panel
