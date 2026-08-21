@@ -7,7 +7,6 @@ type ActivityFilter = 'all' | ActivityType;
 
 @Component({
   selector: 'app-activity-feed',
-  standalone: true,
   imports: [
     LucideBookOpen,
     LucideCalendarDays,

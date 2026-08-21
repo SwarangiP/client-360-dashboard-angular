@@ -74,8 +74,9 @@
 
                 <div class="navigation__items">
 
-                    <button type="button" class="navigation__item navigation__item--active" aria-current="page">
-                        <svg lucideUsers class="navigation__item-icon" aria-hidden="true"></svg>
+                    <a class="navigation__item" routerLink="/clients/147842" routerLinkActive="navigation__item--active"
+                        [routerLinkActiveOptions]="{ exact: false }">
+                        <svg lucideUsersRound class="navigation__item-icon" aria-hidden="true"></svg>
 
                         <span class="navigation__item-label">
                             Clients
@@ -84,7 +85,7 @@
                         <span class="navigation__item-badge">
                             147K
                         </span>
-                    </button>
+                    </a>
 
                     <button type="button" class="navigation__item">
                         <svg lucidePanelTop class="navigation__item-icon" aria-hidden="true"></svg>

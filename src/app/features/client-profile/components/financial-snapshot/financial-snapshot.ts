@@ -1,18 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input
-} from '@angular/core';
-
-import {
-  FinancialSnapshot as FinancialSnapshotModel
-} from '../../models/client-profile.model';
-
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { FinancialSnapshot as FinancialSnapshotModel } from '../../models/client-profile.model';
 import { MetricTile } from '../metric-tile/metric-tile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-financial-snapshot',
-  standalone: true,
   imports: [MetricTile],
   templateUrl: './financial-snapshot.html',
   styleUrl: './financial-snapshot.scss',
@@ -21,6 +13,7 @@ import { MetricTile } from '../metric-tile/metric-tile';
 export class FinancialSnapshot {
   readonly snapshot = input.required<FinancialSnapshotModel>();
   readonly Math = Math;
+  private readonly router = inject(Router);
 
   getLastSyncedLabel(): string {
     const value = this.snapshot().lastSynced;
@@ -128,6 +121,10 @@ export class FinancialSnapshot {
   }
 
   onViewBreakdown(): void {
-    // Hook for the shared toast/action flow.
+    this.router.navigate([
+      '/clients',
+      '147842',
+      'financials'
+    ]);
   }
 }

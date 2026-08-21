@@ -22,7 +22,6 @@ type WorkbookTab = 'tasks' | 'docs' | 'payment';
 
 @Component({
   selector: 'app-workbook-panel',
-  standalone: true,
   imports: [
     LucideChevronRight,
     LucidePlus,

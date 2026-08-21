@@ -17,7 +17,6 @@ import {
 
 @Component({
   selector: 'app-next-action',
-  standalone: true,
   imports: [
     LucideEllipsisVertical,
     LucideSend
