@@ -44,7 +44,12 @@
     <aside class="client-profile-layout__right">
         <app-next-action [action]="clientProfile.nextAction" (generate)="onGenerateFwp()"
             (moreClicked)="onNextActionMore()" />
+
+        <app-workbook-panel [workbook]="clientProfile.workbook" [tasks]="tasks()" [docsCount]="clientProfile.docsCount"
+            [paymentSummary]="clientProfile.paymentSummary" (taskToggled)="onTaskToggled($event)"
+            (addTask)="onAddTask($event)" />
     </aside>
+
 
 </div>
 }

@@ -14,6 +14,8 @@ import { Compliance } from '../../components/compliance/compliance';
 import { ActivityFeed } from '../../components/activity-feed/activity-feed';
 import { NextAction } from '../../components/next-action/next-action';
 import { ToastService } from '../../../../core/services/toast.service';
+import { WorkbookPanel } from '../../components/workbook-panel/workbook-panel';
+import { Task } from '../../models/client-profile.model';
 
 @Component({
   selector: 'app-client-profile-page',
@@ -28,6 +30,7 @@ import { ToastService } from '../../../../core/services/toast.service';
     Compliance,
     ActivityFeed,
     NextAction,
+    WorkbookPanel
   ],
   templateUrl: './client-profile-page.html',
   styleUrl: './client-profile-page.scss',
@@ -41,6 +44,7 @@ export class ClientProfilePage {
   readonly client = signal<ClientProfile | null>(null);
   readonly isLoading = signal(false);
   readonly errorMessage = signal<string | null>(null);
+  readonly tasks = signal<Task[]>([]);
 
   constructor() {
     this.loadClientProfile();
@@ -54,6 +58,7 @@ export class ClientProfilePage {
       .subscribe({
         next: (clientProfile) => {
           this.client.set(clientProfile);
+          this.tasks.set(clientProfile.tasks);
           this.isLoading.set(false);
         },
         error: (error: unknown) => {
@@ -75,5 +80,37 @@ export class ClientProfilePage {
 
   onNextActionMore(): void {
     this.toastService.show('More action options opened.');
+  }
+
+  onTaskToggled(taskId: string): void {
+    this.tasks.update((tasks) =>
+      tasks.map((task) =>
+        task.id === taskId
+          ? {
+            ...task,
+            completed: !task.completed
+          }
+          : task
+      )
+    );
+
+    this.toastService.show('Task status updated.');
+  }
+
+  onAddTask(label: string): void {
+    const newTask: Task = {
+      id: crypto.randomUUID(),
+      label,
+      dueLabel: 'Today',
+      assigneeTag: '@me',
+      completed: false
+    };
+
+    this.tasks.update((tasks) => [
+      ...tasks,
+      newTask
+    ]);
+
+    this.toastService.show('Task added.');
   }
 }

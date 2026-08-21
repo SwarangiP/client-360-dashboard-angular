@@ -1,1 +1,145 @@
-<p>workbook-panel works!</p>
+<section class="workbook-panel">
+
+    <!-- Workbook summary -->
+    <button type="button" class="workbook-panel__summary" aria-label="Open workbook details">
+        <div class="workbook-panel__progress" [style.--progress]="workbook().completionPercent + '%'" [attr.aria-label]="
+        workbook().completionPercent + '% complete'
+      ">
+            <span>
+                {{ workbook().completionPercent }}
+            </span>
+        </div>
+
+        <div class="workbook-panel__summary-content">
+            <strong>
+                {{ workbook().version }} · {{ workbook().status }}
+            </strong>
+
+            <span>
+                {{ workbook().totalActions }} actions
+                ·
+                {{ workbook().completedActions }} complete
+            </span>
+        </div>
+
+        <svg lucideChevronRight class="workbook-panel__summary-arrow" aria-hidden="true"></svg>
+    </button>
+
+    <!-- Tabs -->
+    <div class="workbook-panel__tabs" role="tablist" aria-label="Workbook details">
+        <button type="button" role="tab" class="workbook-panel__tab"
+            [class.workbook-panel__tab--active]="activeTab() === 'tasks'" [attr.aria-selected]="activeTab() === 'tasks'"
+            (click)="setTab('tasks')">
+            Tasks
+            <span>{{ tasks().length }}</span>
+        </button>
+
+        <button type="button" role="tab" class="workbook-panel__tab"
+            [class.workbook-panel__tab--active]="activeTab() === 'docs'" [attr.aria-selected]="activeTab() === 'docs'"
+            (click)="setTab('docs')">
+            Docs
+            <span>{{ docsCount() }}</span>
+        </button>
+
+        <button type="button" role="tab" class="workbook-panel__tab"
+            [class.workbook-panel__tab--active]="activeTab() === 'payment'"
+            [attr.aria-selected]="activeTab() === 'payment'" (click)="setTab('payment')">
+            Payment
+        </button>
+    </div>
+
+    <!-- Tasks -->
+    @if (activeTab() === 'tasks') {
+
+    <div class="workbook-panel__tasks">
+
+        @if (tasks().length > 0) {
+
+        @for (task of tasks(); track task.id) {
+        <button type="button" class="workbook-task" [class.workbook-task--completed]="task.completed"
+            (click)="onTaskToggle(task.id)">
+            <span class="workbook-task__checkbox">
+                @if (task.completed) {
+                <svg lucideCheck aria-hidden="true"></svg>
+                }
+            </span>
+
+            <span class="workbook-task__content">
+                <span class="workbook-task__label">
+                    {{ task.label }}
+                </span>
+
+                <span class="workbook-task__meta">
+                    {{ task.dueLabel }} · {{ task.assigneeTag }}
+                </span>
+            </span>
+        </button>
+        }
+
+        } @else {
+
+        <div class="workbook-panel__empty">
+            No tasks available.
+        </div>
+
+        }
+
+    </div>
+
+    @if (showAddTask()) {
+    <form class="workbook-panel__add-form" (submit)="submitNewTask($event)">
+        <label for="new-task">
+            New task
+        </label>
+
+        <input id="new-task" type="text" autocomplete="off" placeholder="Describe the task" [value]="newTaskLabel()"
+            (input)="
+        newTaskLabel.set(
+          $any($event.target).value
+        )
+      " />
+
+        <div class="workbook-panel__add-form-actions">
+            <button type="button" class="workbook-panel__cancel" (click)="cancelAddTask()">
+                Cancel
+            </button>
+
+            <button type="submit" class="workbook-panel__confirm" [disabled]="!newTaskLabel().trim()">
+                Add
+            </button>
+        </div>
+    </form>
+    } @else {
+    <button type="button" class="workbook-panel__add-task" (click)="onAddTask()">
+        <svg lucidePlus aria-hidden="true"></svg>
+
+        <span>Add task</span>
+    </button>
+    }
+
+    }
+
+    <!-- Documents -->
+    @if (activeTab() === 'docs') {
+    <div class="workbook-panel__empty">
+        <strong>{{ docsCount() }} documents</strong>
+        <span>
+            Documents are available for this workbook.
+        </span>
+    </div>
+    }
+
+    <!-- Payment -->
+    @if (activeTab() === 'payment') {
+    <div class="workbook-panel__empty">
+        <strong>
+            Payment · {{ paymentSummary().status }}
+        </strong>
+
+        <span>
+            Payment status for this client.
+        </span>
+    </div>
+    }
+
+</section>

@@ -24,7 +24,7 @@ export class Compliance {
         return '✓';
 
       case 'pending':
-        return '○';
+        return '!';
 
       case 'action_required':
         return '!';
