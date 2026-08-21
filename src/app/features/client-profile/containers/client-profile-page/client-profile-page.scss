@@ -5,8 +5,8 @@
 
 .client-profile-layout {
     display: grid;
-    grid-template-columns: 240px minmax(0, 1fr) 280px;
-    gap: 12px;
+    grid-template-columns: minmax(210px, 240px) minmax(0, 1fr) minmax(250px, 280px);
+    gap: 16px;
 
     padding: 10px 14px 16px;
 
