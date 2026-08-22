@@ -1,6 +1,35 @@
 <div class="shell">
 
-    <aside class="navigation" aria-label="Primary navigation">
+    <header class="shell__mobile-header">
+        <div class="navigation__brand">
+            <div class="navigation__brand-mark" aria-hidden="true">
+                1F
+            </div>
+
+            <div class="navigation__brand-info">
+                <div class="navigation__brand-name">
+                    EOS
+                </div>
+
+                <div class="navigation__brand-subtitle">
+                    1Finance
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="shell__navigation-toggle" (click)="toggleNavigation()"
+            [attr.aria-expanded]="isNavigationOpen()" aria-controls="primary-navigation"
+            [attr.aria-label]="isNavigationOpen() ? 'Close navigation' : 'Open navigation'">
+            @if (isNavigationOpen()) {
+            <svg lucideX aria-hidden="true"></svg>
+            } @else {
+            <svg lucideMenu aria-hidden="true"></svg>
+            }
+        </button>
+    </header>
+
+    <aside id="primary-navigation" class="navigation" [class.navigation--open]="isNavigationOpen()"
+        aria-label="Primary navigation">
 
         <!-- Brand -->
         <div class="navigation__brand">

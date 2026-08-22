@@ -13,6 +13,14 @@
     background: #f5f5f3;
     overflow: hidden;
 
+    &__mobile-header {
+        display: none;
+    }
+
+    &__navigation-toggle {
+        display: none;
+    }
+
     &__content {
         width: 100%;
         min-width: 0;
@@ -415,42 +423,111 @@
 @media (max-width: 640px) {
     .shell {
         display: block;
+
+        &__mobile-header {
+            display: flex;
+            position: fixed;
+            z-index: 29;
+            top: 0;
+            right: 0;
+            left: 0;
+
+            height: 56px;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 12px;
+
+            background: #f8f8f7;
+            border-bottom: 1px solid #e3e3df;
+
+            .navigation__brand {
+                flex-shrink: 0;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        &__navigation-toggle {
+            display: grid;
+            position: absolute;
+            z-index: 31;
+            top: 10px;
+            right: 12px;
+
+            width: 36px;
+            height: 36px;
+            place-items: center;
+
+            padding: 0;
+
+            border: 1px solid #d7d7d3;
+            border-radius: 8px;
+            background: #f8f8f7;
+            color: #454540;
+
+            cursor: pointer;
+
+            &:focus-visible {
+                outline: 2px solid #4c8070;
+                outline-offset: 1px;
+            }
+
+            svg {
+                width: 18px;
+                height: 18px;
+                stroke-width: 1.8;
+            }
+        }
     }
 
     .navigation {
         position: fixed;
-        z-index: 20;
-        top: 0;
+        z-index: 30;
+        top: 56px;
         left: 0;
 
-        width: 100%;
-        height: 56px;
+        width: 252px;
+        max-width: calc(100vw - 24px);
+        height: calc(100vh - 56px);
+        transform: translateX(-100%);
 
-        flex-direction: row;
-        align-items: center;
+        padding-right: 14px;
+        padding-left: 14px;
 
-        padding: 0 12px;
+        box-shadow: 8px 0 24px rgb(20 20 18 / 10%);
+        transition: transform 180ms ease;
 
-        border-right: 0;
-        border-bottom: 1px solid #e3e3df;
-
-        &__brand {
-            padding: 0;
-            margin: 0;
+        &--open {
+            transform: translateX(0);
         }
 
-        &__brand-info {
+        &>&__brand {
+            display: none;
+        }
+
+        &__brand-info,
+        &__search-wrapper,
+        &__section-title,
+        &__item-label,
+        &__item-badge,
+        &__account-info,
+        &__account-menu {
             display: block;
         }
 
-        &__brand-mark {
-            width: 32px;
-            height: 32px;
+        &__search-wrapper {
+            display: block;
         }
 
-        &__menu,
+        &__item {
+            justify-content: flex-start;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
         &__account {
-            display: none;
+            justify-content: flex-start;
         }
     }
 
