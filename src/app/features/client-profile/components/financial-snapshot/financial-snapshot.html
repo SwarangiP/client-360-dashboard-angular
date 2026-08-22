@@ -25,7 +25,7 @@
             </span>
 
             <strong class="financial-snapshot__value">
-                {{ snapshot().netWorth.displayValue }}
+                {{ snapshot().netWorth.value | indianCurrency }}
             </strong>
 
             @if (snapshot().netWorth.deltaPercent !== null) {
@@ -47,27 +47,25 @@
 
     <div class="financial-snapshot__metrics">
 
-        <app-metric-tile label="Assets" [value]="snapshot().metrics.assets.displayValue ?? '—'"
+        <app-metric-tile label="Assets" [value]="snapshot().metrics.assets.value | indianCurrency"
             [delta]="formatDelta(snapshot().metrics.assets.deltaPercent)" tone="positive" />
 
-        <app-metric-tile label="Liabilities" [value]="snapshot().metrics.liabilities.displayValue ?? '—'"
+        <app-metric-tile label="Liabilities" [value]="snapshot().metrics.liabilities.value | indianCurrency"
             [delta]="formatDelta(snapshot().metrics.liabilities.deltaPercent)" tone="negative" />
 
-        <app-metric-tile label="Value under advisory" [value]="
-        snapshot().metrics.valueUnderAdvisory.displayValue ?? '—'
-      " delta="— No change" tone="neutral" />
+        <app-metric-tile label="Value under advisory"
+            [value]="snapshot().metrics.valueUnderAdvisory.value | indianCurrency" delta="— No change" tone="neutral" />
 
-        <app-metric-tile label="Insurance cover" [value]="
-        snapshot().metrics.insuranceCover.displayValue ?? '—'
-      " [delta]="getInsuranceGap()" tone="warning" />
+        <app-metric-tile label="Insurance cover" [value]="snapshot().metrics.insuranceCover.value | indianCurrency"
+            [delta]="getInsuranceGap() === null ? '' : 'Gap ' + (getInsuranceGap() | indianCurrency)" tone="warning" />
 
-        <app-metric-tile label="Monthly income" [value]="snapshot().monthly.income.displayValue ?? '—'"
+        <app-metric-tile label="Monthly income" [value]="snapshot().monthly.income.value | indianCurrency"
             [delta]="formatDelta(snapshot().monthly.income.deltaPercent)" tone="negative" />
 
-        <app-metric-tile label="Monthly expense" [value]="snapshot().monthly.expense.displayValue ?? '—'"
+        <app-metric-tile label="Monthly expense" [value]="snapshot().monthly.expense.value | indianCurrency"
             [delta]="formatDelta(snapshot().monthly.expense.deltaPercent)" tone="negative" />
 
-        <app-metric-tile label="Monthly surplus" [value]="snapshot().monthly.surplus.displayValue ?? '—'"
+        <app-metric-tile label="Monthly surplus" [value]="snapshot().monthly.surplus.value | indianCurrency"
             [delta]="formatDelta(snapshot().monthly.surplus.deltaPercent)" tone="positive" />
 
         <app-metric-tile label="FBS" [value]="snapshot().monthly.fbs.value.toString()" [delta]="getFbsDelta()"

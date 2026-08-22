@@ -30,7 +30,7 @@ import { ToastService } from '../../../../core/services/toast.service';
 export class ClientHeader {
   readonly client = input.required<ClientProfile>();
   private readonly toastService = inject(ToastService);
-  ;
+
   onCall(): void {
     console.log('Call client:', this.client().id);
     this.toastService.show('Calling client...');

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { PersonalDetails as PersonalDetailsModel } from '../../models/client-profile.model';
 import { DisplayDatePipe } from '../../../../shared/pipes/display-date-pipe';
+import { ToastService } from '../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-personal-details',
@@ -11,8 +12,9 @@ import { DisplayDatePipe } from '../../../../shared/pipes/display-date-pipe';
 })
 export class PersonalDetails {
   readonly personal = input.required<PersonalDetailsModel>();
+  private readonly toastService = inject(ToastService);
 
   onEdit(): void {
-    console.log('Edit personal details');
+    this.toastService.show('Edit personal details');
   }
 }

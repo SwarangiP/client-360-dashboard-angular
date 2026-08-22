@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 import { FinancialSnapshot as FinancialSnapshotModel } from '../../models/client-profile.model';
 import { MetricTile } from '../metric-tile/metric-tile';
 import { Router } from '@angular/router';
+import { IndianCurrencyPipe } from '../../../../shared/pipes/indian-currency-pipe';
 
 @Component({
   selector: 'app-financial-snapshot',
-  imports: [MetricTile],
+  imports: [MetricTile, IndianCurrencyPipe],
   templateUrl: './financial-snapshot.html',
   styleUrl: './financial-snapshot.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -71,10 +72,10 @@ export class FinancialSnapshot {
     return `${direction} ${absoluteValue}%`;
   }
 
-  getInsuranceGap(): string {
+  getInsuranceGap(): number | null {
     const gap = this.snapshot().metrics.insuranceCover.gap;
 
-    return gap ? `Gap ${gap.displayValue}` : '';
+    return gap?.value ?? null;
   }
 
   getFbsDelta(): string {
