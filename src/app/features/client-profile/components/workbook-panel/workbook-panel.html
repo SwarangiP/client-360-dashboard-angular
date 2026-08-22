@@ -78,9 +78,7 @@
 
         } @else {
 
-        <div class="workbook-panel__empty">
-            No tasks available.
-        </div>
+        <app-empty-state message="No tasks available." />
 
         }
 
@@ -121,12 +119,16 @@
 
     <!-- Documents -->
     @if (activeTab() === 'docs') {
+    @if (docsCount() > 0) {
     <div class="workbook-panel__empty">
         <strong>{{ docsCount() }} documents</strong>
         <span>
             Documents are available for this workbook.
         </span>
     </div>
+    } @else {
+    <app-empty-state message="No documents available." />
+    }
     }
 
     <!-- Payment -->

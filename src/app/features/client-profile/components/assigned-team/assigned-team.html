@@ -4,6 +4,9 @@
     </div>
 
     <div class="assigned-team__list">
+        @if (team().length === 0) {
+        <app-empty-state message="No assigned team members."></app-empty-state>
+        } @else {
         @for (member of team(); track member.id) {
         <div class="assigned-team__member">
 
@@ -22,6 +25,7 @@
             </button>
 
         </div>
+        }
         }
     </div>
 </section>

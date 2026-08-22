@@ -3,10 +3,11 @@ import { FinancialSnapshot as FinancialSnapshotModel } from '../../models/client
 import { MetricTile } from '../metric-tile/metric-tile';
 import { Router } from '@angular/router';
 import { IndianCurrencyPipe } from '../../../../shared/pipes/indian-currency-pipe';
+import { EmptyState } from '../../../../shared/components/empty-state/empty-state';
 
 @Component({
   selector: 'app-financial-snapshot',
-  imports: [MetricTile, IndianCurrencyPipe],
+  imports: [MetricTile, IndianCurrencyPipe, EmptyState],
   templateUrl: './financial-snapshot.html',
   styleUrl: './financial-snapshot.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -14,6 +14,7 @@
     </div>
 
     <div class="lifecycle__steps" role="list" aria-label="Client lifecycle">
+        @if (lifecycle().stages.length > 0) {
         @for (stage of lifecycle().stages; track stage.key; let first = $first) {
         <div class="lifecycle__step" [class.lifecycle__step--complete]="isComplete(stage.status)"
             [class.lifecycle__step--current]="isCurrent(stage.status)"
@@ -40,6 +41,9 @@
                 {{ stage.label }}
             </span>
         </div>
+        }
+        } @else {
+        <app-empty-state message="No lifecycle stages available." />
         }
     </div>
 </section>

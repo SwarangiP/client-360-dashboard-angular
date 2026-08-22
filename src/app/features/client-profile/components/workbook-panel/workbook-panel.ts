@@ -17,6 +17,7 @@ import {
   Task,
   PaymentSummary
 } from '../../models/client-profile.model';
+import { EmptyState } from '../../../../shared/components/empty-state/empty-state';
 
 type WorkbookTab = 'tasks' | 'docs' | 'payment';
 
@@ -25,7 +26,8 @@ type WorkbookTab = 'tasks' | 'docs' | 'payment';
   imports: [
     LucideChevronRight,
     LucidePlus,
-    LucideCheck
+    LucideCheck,
+    EmptyState
   ],
   templateUrl: './workbook-panel.html',
   styleUrl: './workbook-panel.scss',

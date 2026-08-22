@@ -12,6 +12,7 @@
     </div>
 
     <div class="compliance__grid">
+        @if (compliance().items.length > 0) {
         @for (item of compliance().items; track item.id) {
         <article class="compliance-item" [class.compliance-item--verified]="item.status === 'verified'"
             [class.compliance-item--pending]="item.status === 'pending'" [class.compliance-item--action-required]="
@@ -26,6 +27,9 @@
                 <span>{{ item.subLabel }}</span>
             </div>
         </article>
+        }
+        } @else {
+        <app-empty-state message="No compliance items available." />
         }
     </div>
 </section>

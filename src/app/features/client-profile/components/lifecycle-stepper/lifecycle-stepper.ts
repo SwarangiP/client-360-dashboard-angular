@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Lifecycle, LifecycleStageStatus } from '../../models/client-profile.model';
 import { DisplayDatePipe } from '../../../../shared/pipes/display-date-pipe';
+import { EmptyState } from '../../../../shared/components/empty-state/empty-state';
 
 @Component({
   selector: 'app-lifecycle-stepper',
-  imports: [DisplayDatePipe],
+  imports: [DisplayDatePipe, EmptyState],
   templateUrl: './lifecycle-stepper.html',
   styleUrl: './lifecycle-stepper.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, input, signal } from '@an
 import { LucideBookOpen, LucideCalendarDays, LucideMessageSquare, LucidePhone } from '@lucide/angular';
 import { Activity, ActivityType } from '../../models/client-profile.model';
 import { DisplayDatePipe } from '../../../../shared/pipes/display-date-pipe';
+import { EmptyState } from '../../../../shared/components/empty-state/empty-state';
 
 type ActivityFilter = 'all' | ActivityType;
 
@@ -12,7 +13,8 @@ type ActivityFilter = 'all' | ActivityType;
     LucideCalendarDays,
     LucideMessageSquare,
     LucidePhone,
-    DisplayDatePipe
+    DisplayDatePipe,
+    EmptyState
   ],
   templateUrl: './activity-feed.html',
   styleUrl: './activity-feed.scss',

@@ -38,9 +38,13 @@
         </div>
 
         <div class="financial-snapshot__chart" aria-label="Net worth trend" role="img">
+            @if (snapshot().netWorth.trend.length > 0) {
             <svg viewBox="0 0 520 100" preserveAspectRatio="none" aria-hidden="true">
                 <polyline [attr.points]="getTrendPoints()" class="financial-snapshot__chart-line" />
             </svg>
+            } @else {
+            <app-empty-state message="No trend data available." />
+            }
         </div>
 
     </div>
